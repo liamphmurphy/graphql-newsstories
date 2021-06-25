@@ -1,0 +1,31 @@
+type Story {
+  id: ID!
+  title: String!
+  body: String!
+  #author: Author!
+}
+
+type Author {
+  id: ID!
+  firstName: String!
+  lastName: String!
+  bio: String
+}
+
+type Query {
+  stories: [Story!]!
+  story(title: String!): Story
+  randomStory: Story!
+}
+
+input NewStory {
+  storyTitle: String!
+  storyBody: String!
+  #storyAuthor: Author!
+}
+
+type Mutation {
+  createStory(input: NewStory!): Story!
+}
+
+# try input Author?
